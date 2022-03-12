@@ -1,10 +1,11 @@
 import React from "react";
+import ModalWindow from "./ModalWindow";
 
 const Checkout = ({ data }) => {
   let totalPrice = 0;
   return (
     <div className="checkout">
-      <p className="gotoCheckout">Go to checkout</p>
+      <ModalWindow data={data} />
       {data.map((item) => {
         totalPrice += item.price * item.count;
         return (
