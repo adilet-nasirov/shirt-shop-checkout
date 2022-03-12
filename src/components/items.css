@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(235, 232, 228);
+}
+.App {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 20px;
+  margin: 20px 3rem;
+  /* background-color: white; */
+  /* justify-content: space-between; */
+}
+.T-shirts {
+  margin: 0;
+  padding: 0;
+}
+.qtyInput {
+  width: 30px;
+}
+.checkout {
+  position: fixed;
+  right: 20px;
+  width: 34%;
+  background-color: white;
+  /* height: 300px; */
+  padding: 0 30px 10px 30px;
+}
+.item {
+  padding: 15px 10px;
+  /* padding-top: 7px; */
+  margin-bottom: 20px;
+  background-color: white;
+}
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+.right-itemInfo {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bottomRight {
+  text-align: right;
+}
+.qty {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+}
+.gotoCheckout {
+  margin-top: 3px;
+  font-size: large;
+  background-color: rgb(75, 13, 133);
+  color: whitesmoke;
+  padding: 5px;
+}
+.checkout-info {
+  display: flex;
+  justify-content: space-between;
+}
