@@ -18,18 +18,42 @@ function App() {
       console.log(error);
     }
   };
-  const incrementHandler = () => {
+  const incrementHandler = (index) => {
     const newData = [...data];
-    newData[index].count = quantity;
+    newData[index].count++;
     setData(newData);
   };
-
-  console.log(data);
+  const decrementHandler = (index) => {
+    const newData = [...data];
+    if (newData[index].count) {
+      newData[index].count--;
+      setData(newData);
+    }
+  };
+  const handleDelete = (id) => {
+    const newData = [...data];
+    const filtered = newData.filter((item) => item.id !== id);
+    setData(filtered);
+  };
+  const handleSaveForLater = (item) => {
+    localStorage.setItem("saved", JSON.stringify(item));
+  };
+  // console.log(data);
   return (
     <div className="App">
       <div className="T-shirts">
         {data.map((item, index) => {
-          return <Items item={item} qtyHandler={qtyAdder} index={index} />;
+          return (
+            <Items
+              handleSaveForLater={handleSaveForLater}
+              handleDelete={handleDelete}
+              incrementHandler={incrementHandler}
+              item={item}
+              qtyHandler={qtyAdder}
+              index={index}
+              decrementHandler={decrementHandler}
+            />
+          );
         })}
       </div>
       <Checkout data={data} />

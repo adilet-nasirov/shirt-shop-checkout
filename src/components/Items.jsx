@@ -1,6 +1,14 @@
 import React from "react";
 import "./items.css";
-const Items = ({ item, qtyHandler, index }) => {
+const Items = ({
+  decrementHandler,
+  incrementHandler,
+  item,
+  qtyHandler,
+  index,
+  handleDelete,
+  handleSaveForLater,
+}) => {
   return (
     <div className="item" key={index}>
       <p style={{ margin: 0 }}>{item.seller}</p>
@@ -22,16 +30,28 @@ const Items = ({ item, qtyHandler, index }) => {
                 onChange={(e) => qtyHandler(e)}
               />
               <div className="btns">
-                <span className="plusBtn button">+</span>
-                <span className="minusBtn button">-</span>
+                <span
+                  onClick={() => incrementHandler(index)}
+                  className="plusBtn button"
+                >
+                  +
+                </span>
+                <span
+                  className="minusBtn button"
+                  onClick={() => {
+                    decrementHandler(index);
+                  }}
+                >
+                  -
+                </span>
               </div>
             </div>
             <p>${item.price}</p>
           </div>
           <div className="bottomRight">
-            <a href="#">save for later </a>
+            <a onClick={() => handleSaveForLater(item)}>save for later </a>
             <span>|</span>
-            <a href="#"> remove</a>
+            <a onClick={() => handleDelete(item.id)}> remove</a>
           </div>
         </div>
       </div>

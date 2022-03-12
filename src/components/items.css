@@ -98,3 +98,6 @@ a {
   background-color: rgb(77, 180, 146);
   border: 1px solid aqua;
 }
+a {
+  cursor: pointer;
+}
