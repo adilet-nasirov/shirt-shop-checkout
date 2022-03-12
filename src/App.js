@@ -7,6 +7,8 @@ import Checkout from "./components/checkout";
 function App() {
   //hooks
   const [data, setData] = useState(shirts);
+  const [shouldPopup, setShouldPopup] = useState(false);
+  const [msg, setMsg] = useState("Successfully saved!");
   const qtyAdder = (e) => {
     try {
       let quantity = Number(e.target.value);
@@ -36,27 +38,48 @@ function App() {
     setData(filtered);
   };
   const handleSaveForLater = (item) => {
-    localStorage.setItem("saved", JSON.stringify(item));
+    console.log("click");
+    const dataInLocal = JSON.parse(localStorage.getItem("saved"));
+    if (dataInLocal) {
+      if (dataInLocal.some((el) => el.id === item.id)) {
+        setMsg("It is already in saved");
+      } else {
+        setMsg("Successfully saved!");
+        localStorage.setItem("saved", JSON.stringify([...dataInLocal, item]));
+      }
+    } else {
+      setMsg("Successfully saved!");
+      localStorage.setItem("saved", JSON.stringify([item]));
+    }
+    setTimeout(() => {
+      setShouldPopup(false);
+    }, 1000);
+    setShouldPopup(true);
   };
   // console.log(data);
   return (
     <div className="App">
-      <div className="T-shirts">
-        {data.map((item, index) => {
-          return (
-            <Items
-              handleSaveForLater={handleSaveForLater}
-              handleDelete={handleDelete}
-              incrementHandler={incrementHandler}
-              item={item}
-              qtyHandler={qtyAdder}
-              index={index}
-              decrementHandler={decrementHandler}
-            />
-          );
-        })}
+      <div className="Home">
+        {shouldPopup ? <div className="popup">{msg}</div> : <div></div>}
+        <div className="container">
+          <div className="T-shirts">
+            {data.map((item, index) => {
+              return (
+                <Items
+                  handleSaveForLater={handleSaveForLater}
+                  handleDelete={handleDelete}
+                  incrementHandler={incrementHandler}
+                  item={item}
+                  qtyHandler={qtyAdder}
+                  index={index}
+                  decrementHandler={decrementHandler}
+                />
+              );
+            })}
+          </div>
+          <Checkout data={data} />
+        </div>
       </div>
-      <Checkout data={data} />
     </div>
   );
 }

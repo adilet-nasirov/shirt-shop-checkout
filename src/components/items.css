@@ -5,12 +5,18 @@ body {
   background-color: rgb(235, 232, 228);
 }
 .App {
+  /* display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-gap: 20px;
+  margin: 20px 3rem; */
+  /* background-color: white; */
+  /* justify-content: space-between; */
+}
+.container {
   display: grid;
   grid-template-columns: 3fr 2fr;
   grid-gap: 20px;
   margin: 20px 3rem;
-  /* background-color: white; */
-  /* justify-content: space-between; */
 }
 .T-shirts {
   margin: 0;
@@ -58,9 +64,15 @@ a {
 .gotoCheckout {
   margin-top: 3px;
   font-size: large;
-  background-color: rgb(75, 13, 133);
+  border: 2px solid blueviolet;
+  background-color: blueviolet;
   color: whitesmoke;
+  cursor: pointer;
   padding: 5px;
+}
+.gotoCheckout:hover {
+  background-color: whitesmoke;
+  color: blueviolet;
 }
 .checkout-info {
   display: flex;
@@ -100,4 +112,14 @@ a {
 }
 a {
   cursor: pointer;
+}
+.popup {
+  border: 1px solid darkorchid;
+  color: whitesmoke;
+  background-color: darkviolet;
+  padding: 20px 50px;
+  position: fixed;
+  left: 45%;
+  margin: 0;
+  z-index: 2;
 }
