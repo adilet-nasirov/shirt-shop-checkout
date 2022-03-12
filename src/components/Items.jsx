@@ -12,16 +12,19 @@ const Items = ({ item, qtyHandler, index }) => {
         </div>
         <div className="right-itemInfo">
           <div className="qty">
-            <div>
+            <div className="qtyInfos">
               <label htmlFor="qty">QTY:</label>
               <input
                 className="qtyInput"
                 type="text"
+                value={item.count}
                 id={index}
                 onChange={(e) => qtyHandler(e)}
               />
-              <span>-</span>
-              <span>+</span>
+              <div className="btns">
+                <span className="plusBtn button">+</span>
+                <span className="minusBtn button">-</span>
+              </div>
             </div>
             <p>${item.price}</p>
           </div>

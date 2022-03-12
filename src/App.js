@@ -9,16 +9,19 @@ function App() {
   const [data, setData] = useState(shirts);
   const qtyAdder = (e) => {
     try {
-      // console.log("qty");
       let quantity = Number(e.target.value);
       let index = Number(e.target.id);
       const newData = [...data];
       newData[index].count = quantity;
       setData(newData);
-      // console.log(data);
     } catch (error) {
       console.log(error);
     }
+  };
+  const incrementHandler = () => {
+    const newData = [...data];
+    newData[index].count = quantity;
+    setData(newData);
   };
 
   console.log(data);

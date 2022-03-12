@@ -66,3 +66,35 @@ a {
   display: flex;
   justify-content: space-between;
 }
+.qtyInfos {
+  display: flex;
+  align-items: center;
+}
+.btns {
+  display: flex;
+  /* flex-direction: column */
+}
+.button {
+  margin: 1px;
+  padding: 0;
+  width: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.minusBtn {
+  background-color: red;
+  border: 1px solid rgb(241, 79, 79);
+}
+.minusBtn:hover {
+  background-color: rgb(231, 0, 219);
+  border: 1px solid rgb(255, 35, 171);
+}
+.plusBtn {
+  background-color: green;
+  border: 1px solid green;
+}
+.plusBtn:hover {
+  background-color: rgb(77, 180, 146);
+  border: 1px solid aqua;
+}
